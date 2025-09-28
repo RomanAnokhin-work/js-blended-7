@@ -23,3 +23,24 @@ export async function getProducts(currentPage = 1) {
     console.log(error.message);
   }
 }
+
+export async function getProductByCategory(category = 'smartphones') {
+  try {
+    const response = await axios.get(`/products/category/${category}`);
+
+    return response.data.products;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export async function getProductById(id = 1) {
+  try {
+    const response = await axios.get(`/products/${id}`);
+    console.log(response.data);
+    
+    return response.data;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
